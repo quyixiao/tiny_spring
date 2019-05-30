@@ -6,14 +6,13 @@
 
 
 
-    <bean id="getBeanTest" class="test.lookup.app.GetBeanTest">
-        <lookup-method name="getBean" bean="student"></lookup-method>
+    <bean id="testChangeMethod" class="test.replacemethod.TestChangeMethod">
+        <replaced-method name="changeMe" replacer="replacer"></replaced-method>
 
     </bean>
 
 
-    <bean id="teacher" class="test.lookup.app.Teacher"></bean>
-    <bean id="student" class="test.lookup.app.Student"></bean>
+    <bean id="replacer" class="test.replacemethod.TestMethodReplacer"></bean>
 
 
 </beans>

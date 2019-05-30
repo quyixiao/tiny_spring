@@ -5,6 +5,11 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 
+
+/****
+ * configurableBeanFactory 提供配置的各种方法
+ *
+ */
 public class TestCr {
 
 

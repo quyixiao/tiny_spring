@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:myname2="http://www.example.org/schema/user"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+             http://www.example.org/schema/user http://www.example.org/schema/user.xsd">
+
+    <bean id="circleA" class="com.bean.CircleA" scope="prototype" >
+        <property name="circleB" ref="circleB"></property>
+    </bean>
+
+
+    <bean id="circleB" class="com.bean.CircleB" scope="prototype" >
+        <property name="circleC" ref="circleC"></property>
+    </bean>
+
+
+    <bean id="circleC" class="com.bean.CircleC" scope="prototype" >
+        <property name="circleA" ref="circleA"></property>
+    </bean>
+
+
+</beans>

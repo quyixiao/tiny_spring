@@ -9,7 +9,10 @@ public class TestConstructor {
 
     @Test
     public void testMain() throws Throwable {
-        System.out.println("quyixiao");
+        String sql = "order by id desc ";
+        if(sql.contains(" desc ")){
+            System.out.println("true");
+        }
     }
 
 

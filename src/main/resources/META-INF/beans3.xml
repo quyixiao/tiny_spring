@@ -6,23 +6,24 @@
              http://www.example.org/schema/user http://www.example.org/schema/user.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
 
-    <bean id="userManager" class="com.spel.UserManager" >
-        <property name="dataValue">
-            <value>2013-03-05</value>
+
+
+    <bean id="bfpp" class="com.obscenity.ObscenityRemovingBeanFactoryPostProcessor" >
+        <property name="obscenties">
+            <set>
+                <value>oidiaodoa</value>
+                <value>zhangsan</value>
+                <value>dujianchao</value>
+                <value>wangwu</value>
+            </set>
         </property>
     </bean>
 
 
-    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer" >
-        <property name="customEditors" >
-            <map>
-                <entry key="java.util.Date">
-                    <bean class="com.spel.DatePropertyEditor">
-                        <property name="formate" value="yyyy-MM-dd"></property>
-                    </bean>
-                </entry>
-            </map>
-        </property>
+    <bean id="simpleBean" class="com.obscenity.SimplePostProcessor">
+        <property name="connectionString" value="zhangsan"></property>
+        <property name="password" value="lizi"></property>
+        <property name="username" value="wangwu"></property>
     </bean>
 
 </beans>

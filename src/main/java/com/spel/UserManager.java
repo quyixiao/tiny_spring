@@ -22,11 +22,4 @@ public class UserManager {
         return "dataValue = " + dataValue;
     }
 
-
-    public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
-        UserManager userManager = (UserManager)ctx.getBean("userManager");
-        System.out.println(userManager);
-
-    }
 }

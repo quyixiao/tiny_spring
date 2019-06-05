@@ -6,19 +6,22 @@
              http://www.example.org/schema/user http://www.example.org/schema/user.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
 
-    <bean id="userManager" class="com.spel.UserManager" >
-        <property name="dataValue">
-            <value>2013-03-05</value>
+    <!--将bean1中的Date赋值2008-08-15，spring会认为2008-08-15是String，无法转换成Date，会报错！-->
+    <bean id="bean1" class="com.bjsxt.spring.Bean1">
+        <property name="dateValue">
+            <value>2008-08-15</value>
         </property>
     </bean>
 
 
-    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer" >
-        <property name="customEditors" >
+    <!-- 于是定义属性编辑器 -->
+    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
             <map>
                 <entry key="java.util.Date">
-                    <bean class="com.spel.DatePropertyEditor">
-                        <property name="formate" value="yyyy-MM-dd"></property>
+                    <bean class="com.bjsxt.spring.UtilDatePropertyEditor">
+                        <!--干脆把format也注入，灵活处理格式-->
+                        <property name="format" value="yyyy-MM-dd"/>
                     </bean>
                 </entry>
             </map>

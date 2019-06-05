@@ -22,6 +22,7 @@ public class ObscenityRemovingBeanFactoryPostProcessor implements BeanFactoryPos
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         String[] beanNames = beanFactory.getBeanDefinitionNames();
         for (String beanName : beanNames) {
+            System.out.println("++++++++beanName++++++++++++++" + beanName);
             BeanDefinition bd = beanFactory.getBeanDefinition(beanName);
             StringValueResolver valueResolver = new StringValueResolver() {
                 @Override

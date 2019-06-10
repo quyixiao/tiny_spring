@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:myname2="http://www.example.org/schema/user" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+             http://www.example.org/schema/user http://www.example.org/schema/user.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+
+
+    <!-- 数据库JDBC的配置 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://rm-bp1153ou4f5964n147o.mysql.rds.aliyuncs.com:3306/sp2p9"></property>
+        <property name="username" value="sp2p"></property>
+        <property name="password" value="pD0q7S8uk88Gwm88"></property>
+        <property name="initialSize" value="1"></property>
+        <property name="maxActive" value="300"></property>
+        <property name="maxIdle" value="2"></property>
+        <property name="minIdle"  value="1"></property>
+
+    </bean>
+
+
+    <bean id="borrowService" class="com.poi.BorrowServiceImpl">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+</beans>

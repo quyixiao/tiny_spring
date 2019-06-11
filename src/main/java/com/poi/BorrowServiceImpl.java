@@ -45,8 +45,9 @@ public class BorrowServiceImpl implements BorrowService {
                 "left join t_invest ti on tbi.invest_id = ti.id \n" +
                 "left join t_bid tb on tbi.bid_id = tb.id \n" +
                 "left join t_user tu on tu.id = tbi.user_id\n" +
-                "left join t_user_info tui on tbi.user_id = tui.user_id   ORDER BY tb.id asc ,ti.id  asc    ";
-               // "where tb.status = 5 and tb.period_unit = 2  and tb.period > 1  ORDER BY tb.id asc ,ti.id  asc   ";
+                "left join t_user_info tui on tbi.user_id = tui.user_id  " +
+                 //"where tb.status = 5 and tb.period_unit = 2  and tb.period > 1 " +
+                "  ORDER BY tb.id asc ,ti.id  asc,tbi.period asc     ";
 
         System.out.println(sql);
 

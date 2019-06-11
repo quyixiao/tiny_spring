@@ -40,13 +40,13 @@ public class PoiTest {
 
 
         List<BorrowInfo> newBorrowInfos = new ArrayList<>();
-        int k = 0;
-        int l = 0;
+        Long k = 0l;
+        Long l = 0l;
         Long maxBorrowId = 0l;
         Long maxBillId = 0l;
         for (int i = 0; i < borrowInfos.size(); i++) {
             BorrowInfo borrowInfo = borrowInfos.get(i);
-            if (borrowInfo.getBorrowId() > maxBorrowId) {
+            if (borrowInfo.getBorrowId().longValue() !=  maxBorrowId.longValue()) {
                 maxBorrowId = borrowInfo.getBorrowId();
                 k++;
             }
@@ -63,7 +63,7 @@ public class PoiTest {
             b.setLastRepayTime(borrowInfo.getLastRepayTime() + borrowTemp);
 
 
-            if (borrowInfo.getBillId() > maxBillId) {
+            if (borrowInfo.getBillId().longValue() != maxBillId.longValue()) {
                 maxBillId = borrowInfo.getBillId();
                 l++;
             }
@@ -82,6 +82,8 @@ public class PoiTest {
             b.setRepayTime(borrowInfo.getRepayTime());
             b.setRepayAmount(borrowInfo.getRepayAmount());
             b.setIsFinished(borrowInfo.getIsFinished());
+            b.setBillId(borrowInfo.getBillId());
+            b.setBorrowId(borrowInfo.getBorrowId());
             newBorrowInfos.add(b);
         }
 

@@ -7,7 +7,7 @@ import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
 @ExcelTarget("borrowInfo")
 public class BorrowInfo {
 
-    @Excel(name = "标的名称",needMerge = true, mergeVertical = true)
+    @Excel(name = "标的名称",needMerge = true, mergeVertical = true,width = 20)
     private String title ;
 
 
@@ -34,11 +34,11 @@ public class BorrowInfo {
     @Excel(name = "投资人名称",needMerge = true, mergeVertical = true)
     private String realName;
 
-    @Excel(name = "联系方式",needMerge = true, mergeVertical = true)
+    @Excel(name = "联系方式",needMerge = true, mergeVertical = true,width = 20)
     private String mobile;
 
 
-    @Excel(name = "身份证号码",needMerge = true, mergeVertical = true)
+    @Excel(name = "身份证号码",needMerge = true, mergeVertical = true,width = 25)
     private String idNumber;
 
 
@@ -55,13 +55,24 @@ public class BorrowInfo {
     @Excel(name = "每期回款金额")
     private String repayAmount;
 
-    @Excel(name = "是否提前结清")
+    @Excel(name = "是否已结清")
     private String isFinished;
 
 
     @Excel(name = "billId")
     private Long billId;
 
+    @Excel(name = "borrowId")
+    private Long borrowId;
+
+
+    public Long getBorrowId() {
+        return borrowId;
+    }
+
+    public void setBorrowId(Long borrowId) {
+        this.borrowId = borrowId;
+    }
 
     public Long getBillId() {
         return billId;

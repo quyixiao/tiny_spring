@@ -9,21 +9,6 @@ import java.sql.SQLException;
 
 public class BorrowRowMapper implements RowMapper {
 
-    private String title ;
-    private String borrowAmount ;
-    private String apr ;
-    private String borrowPeriod;
-    private String releaseTime;
-    private String lastRepayTime;
-    private String realName;
-    private String mobile;
-    private String idNumber;
-    private String investAmount;
-    private String period;
-    private String repayTime;
-    private String repayAmount;
-    private String isFinished;
-    private Long billId;
 
     @Override
     public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -43,6 +28,7 @@ public class BorrowRowMapper implements RowMapper {
         borrowInfo.setRepayAmount(rs.getString("repayAmount"));
         borrowInfo.setIsFinished(rs.getString("isFinished"));
         borrowInfo.setBillId(rs.getLong("billId"));
+        borrowInfo.setBorrowId(rs.getLong("borrowId"));
         return borrowInfo;
     }
 }

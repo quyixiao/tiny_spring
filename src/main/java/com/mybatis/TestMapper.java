@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
+
+
 public class TestMapper {
 
     static SqlSessionFactory sqlSessionFactory ;

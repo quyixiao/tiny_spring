@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:myname2="http://www.example.org/schema/user" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+             http://www.example.org/schema/user http://www.example.org/schema/user.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+
+
+    <!-- 数据库JDBC的配置 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://101.37.106.150:3306/my_wallet"></property>
+        <property name="username" value="ldd_biz"></property>
+        <property name="password" value="Hello1234"></property>
+        <property name="initialSize" value="1"></property>
+        <property name="maxActive" value="300"></property>
+        <property name="maxIdle" value="2"></property>
+        <property name="minIdle"  value="1"></property>
+        <property name="defaultAutoCommit" value="true"></property>
+
+    </bean>
+
+
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:test/mybatis/MyBatis-Configuration.xml"></property>
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+
+
+
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.mybatis.UserMapper"></property>
+
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+
+
+
+
+</beans>

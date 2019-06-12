@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="cacheEnabled" value="false"></setting>
+		<setting name="defaultExecutorType" value="REUSE"></setting>
+	</settings>
+
+	<typeAliases>
+		<package name="com.mybatis.domain"/>
+	</typeAliases>
+	
+
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="jdbc"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"></property>
+				<property name="url" value="jdbc:mysql://101.37.106.150:3306/my_wallet"></property>
+				<property name="username" value="ldd_biz"></property>
+				<property name="password" value="Hello1234"></property>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="UserMapper.xml"></mapper>
+	</mappers>
+</configuration>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>错误页面</title>
+	<script type="text/javascript">
+        // 判断rem字体大小
+        (function (doc, win) {    
+            var docEl = doc.documentElement,    
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',    
+            recalc = function () {    
+                var clientWidth = docEl.clientWidth;    
+                if (!clientWidth) return;    
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            };    
+            if (!doc.addEventListener) return;    
+            win.addEventListener(resizeEvt, recalc, false);    
+            doc.addEventListener('DOMContentLoaded', recalc, false);    
+        })(document, window);
+    </script>
+	<style type="text/css">
+		.error404_wrap{
+			text-align: center;
+            font-size: 0.28rem;
+		}
+		.error404_wrap figure{
+			width: 1.74rem;
+			height: 1.76rem;
+			background-image: url(http://f.ldxinyong.com/h5/mobileOperator/1.png);
+		    margin: 2.8rem auto 0.6rem;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.error404_wrap .error404_refresh{
+			width: 2.0rem;
+			height: 0.6rem;
+			line-height: 0.6rem;
+			margin: 1.2rem auto 0;
+			border-radius: 0.08rem;
+			text-align: center;
+			border: 1px solid #CBCBCB;
+		}
+	</style>
+</head>
+<body>
+	<div class="error404_wrap clearfix">
+		<figure></figure>
+		<p>哎呀...您访问的页面找不到了，请稍后再试</p>
+		<div class="error404_refresh" onclick="refresh()">重新查看页面</div>
+	</div>
+	<script type="text/javascript">
+        function refresh(){
+            window.location.reload();
+        }
+	</script>
+</body>
+</html>

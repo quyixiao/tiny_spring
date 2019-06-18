@@ -7,11 +7,19 @@
 	<description>Springmvc api</description>
  
 
+
+	<!--使用ContextLoaderListener配置时，需要告诉它Spring配置文件的位置-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/applicationContext.xml</param-value>
 	</context-param>
 
+
+
+	<!--Spring mvc 前端控制器-->
+	<!--Spring mvc 当DispatcherServlet载入后，它将从一个XML文件中载入Spring的应用上下文，该XML 文件名字取决<servlet-name>-->
+	<!--这里DispatcherServlet 将试图从一个叫做Springmvc-servlet.xml 的文件中载入应用上下文载入应用上下文，其默认位于WEB-INF
+	目录下-->
 	<servlet>
 		<servlet-name>Springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -35,13 +43,28 @@
 
 
 
+
+	<!--配置上下文载入器-->
+	<!--上下文载入器入除了DispatcherServlet载入的配置文件之外的其它上下文配置文件-->
+	<!--最常用的上下文载入器是一个SEervlet监听器，其名称为ContextLoaderListener-->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 
+	<!--Spring 的MVC 之所以需要配置web.xml ,其实最关键的是要配置两个地方-->
+	<!--contextConfigLocation: Spring核心就是配置文件，可以说配置文件是Spring中必不可少的东西，
+	而这两个参数是使得WEb与Spring的配置文件相结合的一个关键配置，
+	DispatcherServlet: 包含了Spring MVC 的请求逻辑，Spring使用此类拦截，WEb请求并进行相应的逻辑处理
+	创建Spring配置文件applicationContext.xml-->
 
 
+
+
+
+	<listener>
+		<listener-class>com.springmvc.MyDataContextListener</listener-class>
+	</listener>
 
 
 	<welcome-file-list>

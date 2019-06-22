@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * 在这个拦截器的 preHandler()方法中，你记录了起始时间，并将它保存到请求属性中，这个方法应该返回 true，允许 dispatcherServlet 继续处理
  * 请求，否则，DisaptcherServlet 会认为这个方法已经处理了请求，直接将响应返回给用户，然后在 postHandler 方法中，从请求属性中加载起始时间
  * 并将它与当前的时间进行了比较，你可以计算总的持续时间，然后把这个时间添加到模型中，
+ *
  */
 public class MyTestInterceptor implements HandlerInterceptor {
     @Override

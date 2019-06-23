@@ -9,9 +9,15 @@
 
 
 	<!--使用ContextLoaderListener配置时，需要告诉它Spring配置文件的位置-->
-	<context-param>
+	<!--<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/applicationContext.xml</param-value>
+	</context-param>-->
+
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext-*.xml</param-value>
 	</context-param>
 
 

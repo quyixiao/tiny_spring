@@ -26,6 +26,16 @@ import javax.jms.*;
  * 而消息接收端则用于服务器中的消息提取并进行相应的处理
  *
  *
+ * Spring 整合 ActiveMQ
+ * 整个消息的发送与推送服务过程非常的简单，但是其中却参杂大量的冗余的代码，比如 Connection 的创建与关闭，Session 的创建与关闭，为了消除
+ * 这一冗余的工作量，Spring 进行了进一步的封装，Spring 下的 ActiveMQ使用方式如下
+ * 1.Spring 配置文件
+ * 配置文件是 Spring 的核心，Spring 整合消息服务的使用也是从配置文件中配置开始的，类似于数据库的操作，Spring 也将 ActiveMQ 中的操作
+ * 统一封装至 JMSTemplate 中，以方便我们统一使用，所在在 Spring 中的核心配置文件首先注册 JMSTemplate 类型的 Bean,当然，ActiviMQConnectionFactory
+ * 用于连接消息服务器，是消息服务的基础，也要注册 ActiveMQQueue 则助于指定消息的目的地
+ *
+ *
+ *
  *
  *
  *

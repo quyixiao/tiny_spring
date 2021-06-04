@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>
             ${java.encoding}
         </project.build.sourceEncoding>
-        <apache.httpcomponents.version>4.3.4</apache.httpcomponents.version>
+        <apache.httpcomponents.version>4.5.13</apache.httpcomponents.version>
         <aop.version>4.1.9.RELEASE</aop.version>
         <aspects.version>4.1.9.RELEASE</aspects.version>
         <aspectjrt.version>1.6.8</aspectjrt.version>
